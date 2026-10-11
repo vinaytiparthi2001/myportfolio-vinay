@@ -2,34 +2,34 @@
 import { useInView } from "@/hooks/useInView";
 
 const flow = [
-  { step: "01", label: "User Request / Trigger", desc: "User prompt, email inquiry, new applicant resume, or scheduled event", color: "#63b3ed", icon: "💬" },
-  { step: "02", label: "Intent & Workflow Detection", desc: "LLM classifies action: meeting setup, email, transcript summary, resume screening, or onboarding", color: "#76e4f7", icon: "🧠" },
-  { step: "03", label: "Context Retrieval (RAG)", desc: "Cosmos DB vector search retrieves policy documents, employee guidelines, or resume data", color: "#b794f4", icon: "🔍" },
-  { step: "04", label: "Azure OpenAI Processing", desc: "LLM generates structured responses, meeting notes, action items, or candidate candidate scorecards", color: "#f6ad55", icon: "✨" },
-  { step: "05", label: "API & Action Execution", desc: "Triggers Graph API (calendars/emails), Zendesk/Zoho tickets, or employee provisioning services", color: "#68d391", icon: "⚡" },
-  { step: "06", label: "Response & Workflow State", desc: "Delivers grounded response, updates SQL/Cosmos DB status, and completes workflow checklist", color: "#63b3ed", icon: "✅" },
+  { step: "01", label: "User Request / Trigger", desc: "User prompt, email inquiry, new applicant resume, or scheduled event", color: "#f59e0b", icon: "💬" },
+  { step: "02", label: "Intent & Workflow Detection", desc: "LLM classifies action: meeting setup, email, transcript summary, resume screening, or onboarding", color: "#fbbf24", icon: "🧠" },
+  { step: "03", label: "Context Retrieval (RAG)", desc: "Cosmos DB vector search retrieves policy documents, employee guidelines, or resume data", color: "#fb7185", icon: "🔍" },
+  { step: "04", label: "Azure OpenAI Processing", desc: "LLM generates structured responses, meeting notes, action items, or candidate scorecards", color: "#f59e0b", icon: "✨" },
+  { step: "05", label: "API & Action Execution", desc: "Triggers Graph API (calendars/emails), Zendesk/Zoho tickets, or employee provisioning services", color: "#fbbf24", icon: "⚡" },
+  { step: "06", label: "Response & Workflow State", desc: "Delivers grounded response, updates SQL/Cosmos DB status, and completes workflow checklist", color: "#f43f5e", icon: "✅" },
 ];
 
 const concepts = [
   {
-    title: "RAG — Retrieval-Augmented Generation",
-    color: "#b794f4",
-    desc: "Instead of relying on what the LLM was trained on, we store documents as vector embeddings in Cosmos DB. When someone asks a document question, we search for the closest matches and pass those chunks to the model. It answers from real content, not a guess.",
+    title: "Retrieval-Augmented Generation (RAG)",
+    color: "#fbbf24",
+    desc: "Instead of relying solely on general training weights, enterprise documents are chunked and converted into vector embeddings stored in Cosmos DB. User queries trigger vector similarity searches to retrieve the most relevant snippets, providing factual, zero-hallucination context for the model.",
   },
   {
-    title: "Intent routing",
-    color: "#68d391",
-    desc: "Not every request needs an LLM response. Some need a database query, some need an API call. The intent layer classifies the request first, then routes it to the right handler — keeps things fast and avoids unnecessary model calls.",
+    title: "System Guardrails & Prompt Engineering",
+    color: "#f59e0b",
+    desc: "I design strict prompt architectures using system instructions, few-shot conditioning, and constrained JSON output schemas. This guarantees the LLM returns deterministic, machine-readable responses that downstream backend services can execute safely.",
   },
   {
-    title: "Azure OpenAI integration",
-    color: "#f6ad55",
-    desc: "We use Azure OpenAI (GPT-4o) as the model. I handle prompt construction, context injection, and output parsing. The prompts are kept tight — clear system instructions, relevant context only, no fluff.",
+    title: "Intent Routing & Workflow Classification",
+    color: "#fb7185",
+    desc: "Every natural language request passes through an intent classification layer. The LLM identifies whether the user wants to book a meeting, screen a resume, retrieve internal policies, or log a ticket, routing the payload directly to the corresponding service handler.",
   },
   {
-    title: "Multi-platform API orchestration",
-    color: "#63b3ed",
-    desc: "After the AI decides what to do, the backend calls whatever it needs — Graph API for calendar/email, Zendesk for tickets, Apollo for contacts, Zoho Desk for support. Each integration has its own handler so they stay independent.",
+    title: "Multi-Platform Tool Execution",
+    color: "#fbbf24",
+    desc: "Once intent and parameters are extracted, our .NET backend orchestrates external tool execution: Microsoft Graph API for email/calendar sync, Apollo for CRM lookups, Zendesk/Zoho for support tickets, and SQL Server for employee operations.",
   },
 ];
 
@@ -39,10 +39,10 @@ export default function AISection() {
   return (
     <section id="ai" className="py-24 max-w-6xl mx-auto px-4 md:px-8" ref={ref}>
       <span className="section-label">AI Work</span>
-      <h2 className={`text-3xl md:text-4xl font-bold text-[#e2e8f0] mt-3 mb-4 anim-fade-up ${visible ? "in" : ""}`}>
+      <h2 className={`text-3xl md:text-4xl font-bold text-[#fdfbf7] mt-3 mb-4 anim-fade-up ${visible ? "in" : ""}`}>
         How the AI layer works
       </h2>
-      <p className={`text-[#718096] text-sm leading-relaxed max-w-xl mb-14 anim-fade-up ${visible ? "in" : ""} delay-100`}>
+      <p className={`text-[#a8a29e] text-sm leading-relaxed max-w-xl mb-14 anim-fade-up ${visible ? "in" : ""} delay-100`}>
         This is the part I find most interesting to work on. Here is how the pieces fit together.
       </p>
 

@@ -43,7 +43,7 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-[#050d1a]/90 backdrop-blur-xl border-b border-[rgba(99,179,237,0.08)] shadow-lg"
+            ? "bg-[#0b0c10]/85 backdrop-blur-xl border-b border-[rgba(245,158,11,0.15)] shadow-xl shadow-black/50"
             : "bg-transparent"
         }`}
       >
@@ -52,12 +52,12 @@ export default function Navbar() {
           <a
             href="#hero"
             onClick={(e) => { e.preventDefault(); handleNav("#hero"); }}
-            className="flex items-center gap-2 group"
+            className="flex items-center gap-2.5 group no-underline"
           >
-            <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#63b3ed] to-[#b794f4] flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-blue-500/20">
+            <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#f59e0b] via-[#fbbf24] to-[#fb7185] flex items-center justify-center text-[#0b0c10] text-sm font-extrabold shadow-md shadow-amber-500/20">
               V
             </span>
-            <span className="text-sm font-semibold text-[#e2e8f0] group-hover:text-[#63b3ed] transition-colors">
+            <span className="text-sm font-semibold text-[#fdfbf7] group-hover:text-[#fbbf24] transition-colors">
               Vinay Kumar Reddy
             </span>
           </a>
@@ -68,7 +68,7 @@ export default function Navbar() {
               <li key={l.href}>
                 <a
                   href={l.href}
-                  className="text-[#718096] hover:text-[#63b3ed] text-sm font-medium transition-colors cursor-pointer no-underline"
+                  className="text-[#a8a29e] hover:text-[#fbbf24] text-sm font-medium transition-colors cursor-pointer no-underline"
                 >
                   {l.label}
                 </a>
@@ -80,12 +80,12 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <a
               href="#contact"
-              className="hidden md:inline-flex items-center px-4 py-1.5 text-sm font-semibold rounded-lg border border-[#63b3ed]/40 text-[#63b3ed] hover:bg-[#63b3ed]/10 transition-all no-underline"
+              className="hidden md:inline-flex items-center px-4 py-1.5 text-sm font-semibold rounded-lg border border-[#f59e0b]/40 text-[#f59e0b] hover:bg-[#f59e0b]/10 hover:border-[#fbbf24] transition-all no-underline"
             >
               Let&apos;s Connect
             </a>
             <button
-              className="md:hidden text-[#718096] hover:text-[#63b3ed] transition-colors"
+              className="md:hidden text-[#a8a29e] hover:text-[#fbbf24] transition-colors"
               onClick={() => setOpen(!open)}
               aria-label="Toggle menu"
             >
@@ -97,13 +97,13 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="fixed inset-0 z-40 bg-[#050d1a]/97 backdrop-blur-xl flex flex-col items-center justify-center gap-8">
+        <div className="fixed inset-0 z-40 bg-[#0b0c10]/98 backdrop-blur-2xl flex flex-col items-center justify-center gap-8">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="text-2xl font-semibold text-[#e2e8f0] hover:text-[#63b3ed] transition-colors cursor-pointer no-underline"
+              className="text-2xl font-semibold text-[#fdfbf7] hover:text-[#fbbf24] transition-colors cursor-pointer no-underline"
             >
               {l.label}
             </a>
@@ -111,7 +111,7 @@ export default function Navbar() {
           <a
             href="#contact"
             onClick={() => setOpen(false)}
-            className="mt-4 px-8 py-3 rounded-xl bg-gradient-to-r from-[#63b3ed] to-[#b794f4] text-white font-semibold text-lg shadow-lg no-underline"
+            className="mt-4 px-8 py-3 rounded-xl bg-gradient-to-r from-[#f59e0b] via-[#fbbf24] to-[#fb7185] text-[#0b0c10] font-bold text-lg shadow-lg no-underline"
           >
             Let&apos;s Connect
           </a>

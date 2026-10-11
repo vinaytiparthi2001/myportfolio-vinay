@@ -26,9 +26,19 @@ const groups = [
   },
   {
     id: "ai",
-    label: "AI & LLMs",
+    label: "LLMs, RAG & GenAI",
     color: "#b794f4",
-    skills: ["Azure OpenAI", "LLMs", "RAG", "Vector Embeddings", "Agent Workflows", "Intent Handling", "Prompting"],
+    skills: [
+      "Azure OpenAI (GPT-4o)",
+      "Retrieval-Augmented Generation (RAG)",
+      "Prompt Engineering",
+      "Vector Embeddings",
+      "Semantic Search",
+      "Intent Detection & Routing",
+      "Agent Workflows",
+      "JSON Schema Constraints",
+      "Context Window Management",
+    ],
   },
   {
     id: "apis",
@@ -80,10 +90,10 @@ export default function Skills() {
       <div className={`flex flex-wrap gap-2 mb-10 anim-fade-up ${visible ? "in" : ""} delay-200`}>
         <button
           onClick={() => setActive(null)}
-          className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all border ${
+          className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all border cursor-pointer ${
             !active
-              ? "bg-[#63b3ed] text-[#050d1a] border-[#63b3ed]"
-              : "border-[rgba(99,179,237,0.2)] text-[#718096] hover:text-[#e2e8f0]"
+              ? "bg-[#38bdf8] text-[#07090e] border-[#38bdf8] shadow-sm shadow-cyan-500/20"
+              : "border-[rgba(56,189,248,0.2)] bg-[rgba(56,189,248,0.04)] text-[#94a3b8] hover:text-[#f1f5f9]"
           }`}
         >
           All
@@ -92,11 +102,11 @@ export default function Skills() {
           <button
             key={g.id}
             onClick={() => setActive(active === g.id ? null : g.id)}
-            className="px-4 py-1.5 rounded-full text-xs font-semibold border transition-all"
+            className="px-4 py-1.5 rounded-full text-xs font-semibold border transition-all cursor-pointer"
             style={
               active === g.id
-                ? { background: g.color, color: "#050d1a", borderColor: g.color }
-                : { borderColor: "rgba(99,179,237,0.2)", color: "#718096" }
+                ? { background: g.color, color: "#07090e", borderColor: g.color, boxShadow: `0 2px 12px ${g.color}35` }
+                : { borderColor: "rgba(56,189,248,0.2)", background: "rgba(56,189,248,0.04)", color: "#94a3b8" }
             }
           >
             {g.label}

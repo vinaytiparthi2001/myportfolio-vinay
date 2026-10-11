@@ -11,37 +11,40 @@ function LinkedInIcon({ size = 16 }: { size?: number }) {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[rgba(99,179,237,0.08)] bg-[#050d1a] py-8">
-      <div className="max-w-6xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-[rgba(99,179,237,0.05)]">
-        <div className="text-center md:text-left">
-          <p className="text-[#e2e8f0] font-semibold">Vinay Kumar Reddy</p>
-          <p className="text-[#718096] text-xs mt-0.5">
-            Associate Software Engineer · .NET · AI Workflows · Third-party Integrations
+    <footer className="border-t border-[rgba(245,158,11,0.15)] bg-[#0b0c10] py-10">
+      <div className="max-w-6xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-[rgba(245,158,11,0.08)]">
+        <div className="text-center md:text-left max-w-lg">
+          <p className="text-[#fdfbf7] font-semibold text-base">Vinay Kumar Reddy</p>
+          <p className="text-[#fbbf24] text-xs font-medium mt-0.5">
+            AI &amp; RAG Engineer · .NET Backend Developer · Workflow Automation
+          </p>
+          <p className="text-[#a8a29e] text-xs leading-relaxed mt-2">
+            Associate Software Engineer specializing in Azure OpenAI (GPT-4o), RAG architectures with Cosmos DB vector search, prompt engineering, and scalable .NET enterprise integrations.
           </p>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 flex-shrink-0">
           <a
             href="mailto:vinaytiparthi2001@gmail.com"
-            className="w-9 h-9 rounded-lg border border-[rgba(99,179,237,0.2)] flex items-center justify-center text-[#718096] hover:text-[#63b3ed] hover:border-[#63b3ed]/40 transition-all"
+            className="w-10 h-10 rounded-lg border border-[rgba(245,158,11,0.25)] bg-[rgba(245,158,11,0.06)] flex items-center justify-center text-[#d6d3d1] hover:text-[#fbbf24] hover:border-[#fbbf24]/50 hover:bg-[rgba(245,158,11,0.14)] transition-all cursor-pointer"
             aria-label="Email"
           >
-            <Mail size={16} />
+            <Mail size={17} />
           </a>
           <a
             href="https://linkedin.com/in/vinayreddytiparthi/"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-9 h-9 rounded-lg border border-[rgba(99,179,237,0.2)] flex items-center justify-center text-[#718096] hover:text-[#b794f4] hover:border-[#b794f4]/40 transition-all"
+            className="w-10 h-10 rounded-lg border border-[rgba(245,158,11,0.25)] bg-[rgba(245,158,11,0.06)] flex items-center justify-center text-[#d6d3d1] hover:text-[#fb7185] hover:border-[#fb7185]/50 hover:bg-[rgba(251,113,133,0.14)] transition-all cursor-pointer"
             aria-label="LinkedIn"
           >
-            <LinkedInIcon size={16} />
+            <LinkedInIcon size={17} />
           </a>
         </div>
       </div>
 
       <div className="pt-6 text-center">
-        <p className="text-[#718096] text-xs">
+        <p className="text-[#78716c] text-xs">
           &copy; 2026 Vinay Kumar Reddy. All rights reserved.
         </p>
       </div>

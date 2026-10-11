@@ -9,7 +9,7 @@ const education = [
     place: "Hyderabad, Telangana",
     years: "2021 – 2024",
     cgpa: "7.63",
-    color: "#63b3ed",
+    color: "#f59e0b",
     note: "This is where I got into AI — the AIML stream covered ML fundamentals, neural networks, and data handling. Pushed me toward where I am now.",
   },
   {
@@ -19,7 +19,7 @@ const education = [
     place: "Hyderabad, Telangana",
     years: "2018 – 2021",
     cgpa: "9.4",
-    color: "#b794f4",
+    color: "#fb7185",
     note: "Solid foundation in programming and computer basics. Graduated with a 9.4 CGPA.",
   },
 ];
@@ -30,12 +30,12 @@ export default function Education() {
   return (
     <section id="education" className="py-24 max-w-6xl mx-auto px-4 md:px-8" ref={ref}>
       <span className="section-label">Education</span>
-      <h2 className={`text-3xl md:text-4xl font-bold text-[#e2e8f0] mt-3 mb-14 anim-fade-up ${visible ? "in" : ""}`}>
+      <h2 className={`text-3xl md:text-4xl font-bold text-[#fdfbf7] mt-3 mb-14 anim-fade-up ${visible ? "in" : ""}`}>
         Academic background
       </h2>
 
       <div className="relative">
-        <div className="absolute left-[21px] top-6 bottom-6 w-px bg-gradient-to-b from-[#63b3ed]/60 via-[#b794f4]/40 to-transparent hidden md:block" />
+        <div className="absolute left-[21px] top-6 bottom-6 w-px bg-gradient-to-b from-[#f59e0b]/60 via-[#fb7185]/40 to-transparent hidden md:block" />
 
         <div className="space-y-8">
           {education.map((edu, i) => (
@@ -46,32 +46,32 @@ export default function Education() {
             >
               <div
                 className="absolute left-[12px] top-6 w-[18px] h-[18px] rounded-full border-2 hidden md:block"
-                style={{ borderColor: edu.color, background: "#050d1a" }}
+                style={{ borderColor: edu.color, background: "#0b0c10" }}
               />
 
               <div className="glass-card p-6 md:p-7">
                 <div className="flex flex-wrap justify-between items-start gap-4">
                   <div>
-                    <h3 className="text-lg font-bold text-[#e2e8f0] mb-1">{edu.degree}</h3>
+                    <h3 className="text-lg font-bold text-[#fdfbf7] mb-1">{edu.degree}</h3>
                     {edu.spec && (
                       <p className="text-sm font-medium mb-1" style={{ color: edu.color }}>{edu.spec}</p>
                     )}
-                    <p className="text-[#94a3b8] text-sm">{edu.school}</p>
-                    <p className="text-[#4a5568] text-xs mt-0.5">{edu.place}</p>
+                    <p className="text-[#d6d3d1] text-sm">{edu.school}</p>
+                    <p className="text-[#a8a29e] text-xs mt-0.5">{edu.place}</p>
                   </div>
                   <div className="flex flex-col items-end gap-2 flex-shrink-0">
-                    <span className="font-mono-custom text-xs text-[#718096] bg-[#0a1628] px-3 py-1.5 rounded-lg border border-[rgba(99,179,237,0.08)]">
+                    <span className="font-mono-custom text-xs text-[#d6d3d1] bg-[#12141a] px-3 py-1.5 rounded-lg border border-[rgba(245,158,11,0.15)]">
                       {edu.years}
                     </span>
                     <span
                       className="text-xs font-bold px-3 py-1.5 rounded-lg"
-                      style={{ color: edu.color, background: `${edu.color}12`, border: `1px solid ${edu.color}20` }}
+                      style={{ color: edu.color, background: `${edu.color}15`, border: `1px solid ${edu.color}30` }}
                     >
                       CGPA {edu.cgpa}
                     </span>
                   </div>
                 </div>
-                <p className="text-[#718096] text-xs mt-4 leading-relaxed italic">{edu.note}</p>
+                <p className="text-[#a8a29e] text-xs mt-4 leading-relaxed italic">{edu.note}</p>
               </div>
             </div>
           ))}

@@ -10,13 +10,28 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vinay Kumar Reddy | Software Engineer - AI, API Integration, .NET",
+  title: "Vinay Kumar Reddy | Software Engineer - AI, RAG, Prompting & .NET",
   description:
-    "Associate Software Engineer specializing in .NET, REST APIs, Azure OpenAI, RAG, LLMs, Microsoft Graph API, and enterprise automation.",
-  keywords: ["Vinay Kumar Reddy", ".NET Developer", "AI Engineer", "REST API", "Azure OpenAI", "RAG", "C#", "Software Engineer", "Hyderabad"],
+    "Associate Software Engineer specializing in LLMs, RAG architectures, prompt engineering, Azure OpenAI, .NET REST APIs, Cosmos DB vector search, and enterprise automation.",
+  keywords: [
+    "Vinay Kumar Reddy",
+    "LLM Engineer",
+    "RAG",
+    "Prompt Engineering",
+    "Azure OpenAI",
+    "Cosmos DB Vector Search",
+    ".NET Developer",
+    "C#",
+    "REST APIs",
+    "Software Engineer",
+    "Hyderabad"
+  ],
+  icons: {
+    icon: "/favicon.svg",
+  },
   openGraph: {
-    title: "Vinay Kumar Reddy | Software Engineer - AI, .NET",
-    description: "Associate Software Engineer specializing in .NET, REST APIs, Azure OpenAI, RAG, and enterprise automation.",
+    title: "Vinay Kumar Reddy | Software Engineer - LLMs, RAG & .NET",
+    description: "Associate Software Engineer specializing in LLMs, RAG architectures, prompt engineering, Azure OpenAI, and .NET enterprise workflows.",
     type: "website",
     locale: "en_IN",
   },
@@ -28,7 +43,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <meta name="theme-color" content="#050d1a" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="theme-color" content="#0b0c10" />
       </head>
       <body className={`${inter.variable} ${jetbrains.variable} antialiased`}>
         {children}

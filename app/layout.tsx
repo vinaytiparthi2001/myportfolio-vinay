@@ -10,28 +10,26 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vinay Kumar Reddy | Software Engineer - AI, RAG, Prompting & .NET",
+  title: "Vinay Kumar Reddy | Associate Software Engineer",
   description:
-    "Associate Software Engineer specializing in LLMs, RAG architectures, prompt engineering, Azure OpenAI, .NET REST APIs, Cosmos DB vector search, and enterprise automation.",
+    "Associate Software Engineer working with .NET, REST APIs, Azure services, AI-powered workflows, and third-party integrations.",
   keywords: [
     "Vinay Kumar Reddy",
-    "LLM Engineer",
-    "RAG",
-    "Prompt Engineering",
-    "Azure OpenAI",
-    "Cosmos DB Vector Search",
+    "Software Engineer",
     ".NET Developer",
     "C#",
     "REST APIs",
-    "Software Engineer",
+    "Azure",
+    "Azure DevOps",
+    "Azure AI Foundry",
     "Hyderabad"
   ],
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: "Vinay Kumar Reddy | Software Engineer - LLMs, RAG & .NET",
-    description: "Associate Software Engineer specializing in LLMs, RAG architectures, prompt engineering, Azure OpenAI, and .NET enterprise workflows.",
+    title: "Vinay Kumar Reddy | Associate Software Engineer",
+    description: "Associate Software Engineer working with .NET, REST APIs, Azure services, AI-powered workflows, and third-party integrations.",
     type: "website",
     locale: "en_IN",
   },

@@ -14,7 +14,6 @@ const groups = [
     label: "Backend & .NET Architecture",
     color: "#76e4f7",
     skills: [
-      ".NET",
       "ASP.NET Core",
       "REST APIs",
       "OAuth 2.0 Integration",
@@ -41,11 +40,29 @@ const groups = [
     ],
   },
   {
+    id: "azure_devops",
+    label: "Azure & DevOps",
+    color: "#f59e0b",
+    skills: [
+      "Azure Portal",
+      "Azure DevOps",
+      "Azure DevOps Pipelines",
+      "Build and deployment pipelines",
+      "Application deployments and troubleshooting",
+      "Azure Cosmos DB",
+      "Azure AI Foundry",
+      "AI agent creation and configuration",
+      "Agent instructions and configuration",
+      "Agent testing and response evaluation",
+      "Azure sandbox environments",
+      "Azure container environments",
+    ],
+  },
+  {
     id: "apis",
     label: "APIs & Integrations",
     color: "#f6ad55",
     skills: [
-      "OAuth 2.0",
       "Microsoft Graph API",
       "Google APIs",
       "Apollo",
@@ -60,13 +77,13 @@ const groups = [
     id: "databases",
     label: "Databases",
     color: "#68d391",
-    skills: ["SQL Server", "Cosmos DB"],
+    skills: ["SQL Server"],
   },
   {
     id: "tools",
     label: "Tools & Cloud",
     color: "#fc8181",
-    skills: ["Azure", "Azure DevOps", "Application Insights", "Git", "Postman"],
+    skills: ["Application Insights", "Git", "Postman"],
   },
 ];
 

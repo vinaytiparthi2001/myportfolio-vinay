@@ -2,14 +2,12 @@
 import { useInView } from "@/hooks/useInView";
 
 const contribution = [
-  "Engineered end-to-end RAG architecture: segmented internal documents, created vector embeddings, and indexed them in Cosmos DB for semantic search with zero hallucination",
-  "Designed structured prompt systems using system instructions, few-shot conditioning, and constrained JSON response schemas for deterministic API calling",
-  "Implemented conversational intent classification routing: parsed natural language requests to trigger relevant backend actions or data queries",
-  "Automated calendar scheduling and email dispatch by converting user intent into parameterized Microsoft Graph API requests",
-  "Built call transcript summarization pipeline with Azure OpenAI (GPT-4o) to distill long meetings into action items and assignees",
-  "Created AI resume screening pipeline: extracted skills, certifications, and experience from applicant resumes to score relevance against job requisitions",
-  "Automated employee onboarding/offboarding workflows, generating asset checklists and provisioning enterprise system accounts",
-  "Built high-throughput ASP.NET Core REST APIs to bridge the AI assistant with Zendesk, Zoho Desk, Apollo, and relational SQL Server databases",
+  "Implemented intent routing to direct user requests to relevant backend services.",
+  "Integrated Microsoft Graph API for supported email and meeting workflows.",
+  "Worked on meeting transcript summarization using Azure OpenAI.",
+  "Contributed to resume screening and employee onboarding/offboarding workflows.",
+  "Worked on document question answering using RAG and Cosmos DB vector search.",
+  "Developed or maintained .NET APIs integrating with relevant third-party services.",
 ];
 
 const tech = [
@@ -26,10 +24,10 @@ export default function Projects() {
       <div className="max-w-6xl mx-auto px-4 md:px-8">
         <span className="section-label">Featured Work</span>
         <h2 className={`text-3xl md:text-4xl font-bold text-[#f1f5f9] mt-3 mb-4 anim-fade-up ${visible ? "in" : ""}`}>
-          Production Systems
+          Featured Work
         </h2>
         <p className={`text-[#94a3b8] text-sm mb-12 anim-fade-up ${visible ? "in" : ""} delay-100`}>
-          A look at enterprise AI automation, prompt engineering, and RAG systems built in production.
+          A look at AI-assisted features and workflow automation built for internal business use.
         </p>
 
         <div className={`glass-card p-6 md:p-10 anim-fade-up ${visible ? "in" : ""} delay-200`}>
@@ -40,7 +38,7 @@ export default function Projects() {
                 className="text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 rounded-full inline-block mb-3"
                 style={{ color: "#fbbf24", background: "rgba(245,158,11,0.12)", border: "1px solid rgba(245,158,11,0.3)" }}
               >
-                AI / RAG / Enterprise
+                AI / Enterprise
               </span>
               <h3 className="text-2xl font-bold text-[#fdfbf7]">Enterprise AI Assistant</h3>
             </div>
@@ -48,9 +46,8 @@ export default function Projects() {
 
           {/* Description */}
           <p className="text-[#d6d3d1] text-sm leading-relaxed mb-8 max-w-2xl">
-            An enterprise AI assistant integrated across company business operations. It automates key employee lifecycle
-            actions — from email communication, meeting scheduling, and transcript summarization to AI-powered resume screening,
-            onboarding/offboarding workflows, and RAG-driven document intelligence.
+            An internal business application that brings AI-powered assistance and workflow automation together.
+            My work includes backend APIs, third-party integrations, document question answering, and AI-assisted employee workflows.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 mb-8">

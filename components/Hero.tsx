@@ -2,17 +2,17 @@
 import { useEffect, useState } from "react";
 
 const roles = [
-  "AI & RAG Solutions Engineer",
-  "LLM Prompting & Agent Workflows",
-  ".NET & C# Backend Developer",
+  "Software Engineer",
+  ".NET & C# Developer",
+  "Azure & Azure DevOps",
   "API & OAuth Integrations",
-  "Enterprise Workflow Automation",
+  "AI & RAG Workflows",
 ];
 
 const techTicker = [
-  "Azure OpenAI", "LLMs", "RAG", "Prompt Engineering", "Vector Embeddings", "Cosmos DB",
-  "C#", ".NET", "REST APIs", "OAuth 2.0", "Semantic Search", "Microsoft Graph API",
-  "SQL Server", "Zendesk", "Zoho Desk", "Apollo", "Google APIs", "Azure DevOps",
+  "Azure Portal", "Azure DevOps", "Azure Cosmos DB", "Azure AI Foundry",
+  "C#", ".NET", "REST APIs", "OAuth 2.0", "Azure OpenAI", "RAG", "Microsoft Graph API",
+  "SQL Server", "Zendesk", "Zoho Desk", "Apollo", "Google APIs", "Application Insights",
 ];
 
 export default function Hero() {
@@ -84,10 +84,7 @@ export default function Hero() {
           </div>
 
           <p className="text-[#d6d3d1] leading-[1.85] max-w-[520px] mb-4 text-[0.93rem]">
-            Associate Software Engineer focused on LLMs, RAG architectures, and intelligent API workflows.
-            Experienced in building context-grounded retrieval pipelines with Azure OpenAI and Cosmos DB vector search,
-            engineering structured prompt templates, and integrating .NET enterprise backends with platforms like
-            Microsoft Graph, Zendesk, and Apollo.
+            I&apos;m an Associate Software Engineer working with .NET, REST APIs, Azure, and AI technologies. I develop backend services, integrate third-party applications, and build AI-powered solutions to automate business tasks. I also create and configure AI agents in Azure AI Foundry, test and integrate them into applications, and work with sandbox environments for running and validating code. My work focuses on simplifying workflows, improving automation, and building practical software solutions.
           </p>
         </div>
 

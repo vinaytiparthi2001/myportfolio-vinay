@@ -2,34 +2,34 @@
 import { useInView } from "@/hooks/useInView";
 
 const flow = [
-  { step: "01", label: "User Request / Trigger", desc: "User prompt, email inquiry, new applicant resume, or scheduled event", color: "#f59e0b", icon: "💬" },
-  { step: "02", label: "Intent & Workflow Detection", desc: "LLM classifies action: meeting setup, email, transcript summary, resume screening, or onboarding", color: "#fbbf24", icon: "🧠" },
-  { step: "03", label: "Context Retrieval (RAG)", desc: "Cosmos DB vector search retrieves policy documents, employee guidelines, or resume data", color: "#fb7185", icon: "🔍" },
-  { step: "04", label: "Azure OpenAI Processing", desc: "LLM generates structured responses, meeting notes, action items, or candidate scorecards", color: "#f59e0b", icon: "✨" },
-  { step: "05", label: "API & Action Execution", desc: "Triggers Graph API (calendars/emails), Zendesk/Zoho tickets, or employee provisioning services", color: "#fbbf24", icon: "⚡" },
-  { step: "06", label: "Response & Workflow State", desc: "Delivers grounded response, updates SQL/Cosmos DB status, and completes workflow checklist", color: "#f43f5e", icon: "✅" },
+  { step: "01", label: "User Request", desc: "User inputs a request or message through the application.", color: "#f59e0b", icon: "💬" },
+  { step: "02", label: "Intent Routing", desc: "Intent routing helps the application determine what a user is asking for and direct the request to the appropriate workflow or API.", color: "#fbbf24", icon: "🧠" },
+  { step: "03", label: "Context Retrieval (RAG)", desc: "RAG retrieves relevant information from documents or other data sources before sending it to a language model.", color: "#fb7185", icon: "🔍" },
+  { step: "04", label: "AI Processing", desc: "Azure OpenAI processes the request with instructions and context.", color: "#f59e0b", icon: "✨" },
+  { step: "05", label: "API Orchestration", desc: "I work on connecting backend workflows with external platforms such as Microsoft Graph, Zendesk, Zoho Desk, and Apollo.", color: "#fbbf24", icon: "⚡" },
+  { step: "06", label: "Response", desc: "Returns the result or updates workflow status.", color: "#f43f5e", icon: "✅" },
 ];
 
 const concepts = [
   {
     title: "Retrieval-Augmented Generation (RAG)",
     color: "#fbbf24",
-    desc: "Instead of relying solely on general training weights, enterprise documents are chunked and converted into vector embeddings stored in Cosmos DB. User queries trigger vector similarity searches to retrieve the most relevant snippets, providing factual, zero-hallucination context for the model.",
+    desc: "RAG retrieves relevant information from documents or other data sources before sending it to a language model. In my work, I've used Cosmos DB vector search for document-related question answering.",
   },
   {
-    title: "System Guardrails & Prompt Engineering",
+    title: "Prompt Design & Instructions",
     color: "#f59e0b",
-    desc: "I design strict prompt architectures using system instructions, few-shot conditioning, and constrained JSON output schemas. This guarantees the LLM returns deterministic, machine-readable responses that downstream backend services can execute safely.",
+    desc: "I work on writing clear instructions, providing examples, defining expected output formats, and testing agent responses.",
   },
   {
-    title: "Intent Routing & Workflow Classification",
+    title: "Intent Routing",
     color: "#fb7185",
-    desc: "Every natural language request passes through an intent classification layer. The LLM identifies whether the user wants to book a meeting, screen a resume, retrieve internal policies, or log a ticket, routing the payload directly to the corresponding service handler.",
+    desc: "Intent routing helps the application determine what a user is asking for and direct the request to the appropriate workflow or API.",
   },
   {
-    title: "Multi-Platform Tool Execution",
+    title: "API Orchestration",
     color: "#fbbf24",
-    desc: "Once intent and parameters are extracted, our .NET backend orchestrates external tool execution: Microsoft Graph API for email/calendar sync, Apollo for CRM lookups, Zendesk/Zoho for support tickets, and SQL Server for employee operations.",
+    desc: "I work on connecting backend workflows with external platforms such as Microsoft Graph, Zendesk, Zoho Desk, and Apollo.",
   },
 ];
 

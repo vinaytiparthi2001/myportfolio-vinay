@@ -23,27 +23,13 @@ export default function About() {
       <div className="grid lg:grid-cols-5 gap-12 items-start">
         <div className={`lg:col-span-3 space-y-5 text-[#d6d3d1] leading-[1.9] text-[0.93rem] anim-fade-left ${visible ? "in" : ""}`}>
           <p>
-            I graduated with a B.Tech in CS (AI & ML) and started my career at TCAIGV in mid-2025. Since then I&apos;ve
-            been the backend person on an internal enterprise platform that the whole company runs on — HR, documents,
-            marketing, support, you name it.
+            I&apos;m an Associate Software Engineer at TCAIGV in Hyderabad. I work mainly on .NET backend development, REST APIs, and integrations with third-party platforms.
           </p>
           <p>
-            Most of what I do is write .NET APIs, figure out how to connect things to each other, and make sure those connections
-            don&apos;t break. That means a lot of work with OAuth flows, webhook handling, and keeping track of what each
-            third-party platform actually supports versus what its docs claim.
+            My work also involves AI-powered features using Azure OpenAI, LLMs, RAG, and vector search. I&apos;ve worked on document question answering, workflow automation, and configuring AI agents with instructions and testing their responses.
           </p>
           <p>
-            The core focus of my day-to-day work is LLM application development and RAG architecture.
-            I design semantic retrieval pipelines that ingest enterprise knowledge into Cosmos DB vector collections,
-            generate embeddings, and perform similarity searches so our language models answer with factual, grounded company
-            data instead of hallucinations. Getting prompts right is a big part of it — crafting strict system prompts, few-shot
-            demonstrations, and JSON schema constraints so outputs can be directly executed by backend services.
-          </p>
-          <p>
-            I connect these LLM outputs to automated agent workflows: when an employee submits a query, intent classification
-            determines whether to trigger Microsoft Graph for meetings/emails, fetch candidate details from Apollo, or generate
-            a support ticket in Zendesk or Zoho Desk. All of this runs on solid .NET backends with SQL Server, monitored with
-            Application Insights to keep latency and token usage under control.
+            I also work with Azure services, including Azure Portal and Cosmos DB, and use Azure DevOps for deployment-related work. I enjoy solving integration issues, testing new features, and learning how AI can make everyday business tasks easier.
           </p>
         </div>
 

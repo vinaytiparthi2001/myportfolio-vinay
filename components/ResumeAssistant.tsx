@@ -11,6 +11,7 @@ const resumeQA: Record<string, string> = {
   prompting: "I engineer deterministic prompt pipelines using clear system roles, few-shot examples, chain-of-thought guidelines, and strict JSON schemas. This enables our LLMs to reliably extract structured arguments and trigger external APIs like Microsoft Graph, Zendesk, and Apollo.",
   api: "I've built and integrated production REST APIs with platforms like Microsoft Graph API (calendar & emails), Apollo (CRM lookups), Zendesk & Zoho Desk (ticketing), Zoho People & CRM, and Google APIs (content automation), all secured via OAuth 2.0 and webhook consumers.",
   database: "I work with a hybrid database architecture: SQL Server for relational transactional data and relational integrity, and Azure Cosmos DB for document storage, telemetry, and vector embeddings.",
+  spfx: "I'm working on an AI-Powered SPFx Development Workflow project built with React and TypeScript. It turns SharePoint requirements into packaged SPFx solutions by separating code generation from the build process, using AI agents and an isolated Azure sandbox environment to generate code and produce .sppkg packages, secured via Azure Key Vault.",
   role: "I am an Associate Software Engineer at TCAIGV in Hyderabad (June 2025 – Present). I focus on building AI-powered enterprise applications, RAG pipelines, API integrations, and backend workflow automation.",
   education:
     "I hold a B.Tech in Computer Science and Engineering with an Artificial Intelligence & Machine Learning specialization from Samskruti College of Engineering and Technology (2021–2024, CGPA 7.63), and a Diploma in Computer Engineering from Samskruti College of Polytechnic (2018–2021, CGPA 9.4).",
@@ -18,11 +19,11 @@ const resumeQA: Record<string, string> = {
 };
 
 const suggestions = [
+  "Tell me about your AI-Powered SPFx Development Workflow project.",
   "How do you implement RAG & vector search?",
   "What is your experience with LLMs & Prompting?",
   "What workflows did you build in your project?",
   "What APIs and platforms have you integrated?",
-  "Tell me about your current role at TCAIGV.",
 ];
 
 interface Message {
@@ -32,6 +33,7 @@ interface Message {
 
 function getAnswer(question: string): string {
   const q = question.toLowerCase();
+  if (q.includes("spfx") || q.includes("sharepoint") || q.includes("sppkg") || q.includes("sandbox")) return resumeQA.spfx;
   if (q.includes("rag") || q.includes("vector") || q.includes("retrieval") || q.includes("semantic")) return resumeQA.rag;
   if (q.includes("prompt") || q.includes("prompting") || q.includes("few-shot") || q.includes("system prompt")) return resumeQA.prompting;
   if (q.includes("workflow") || q.includes("meeting") || q.includes("transcript") || q.includes("resume") || q.includes("onboard") || q.includes("offboard") || q.includes("lifecycle")) return resumeQA.workflows;

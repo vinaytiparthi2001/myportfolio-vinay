@@ -42,7 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className="scroll-smooth">
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="theme-color" content="#0b0c10" />
+        <meta name="theme-color" content="#030712" />
       </head>
       <body className={`${inter.variable} ${jetbrains.variable} antialiased`}>
         {children}

@@ -3,27 +3,27 @@ import { useState, useRef } from "react";
 import { Send, Bot, User } from "lucide-react";
 
 const resumeQA: Record<string, string> = {
-  net: "I specialize in modern .NET (C#) backend engineering. My core work involves architecting high-throughput REST APIs, setting up dependency injection containers, asynchronous services, and integrating enterprise modules including Attendance, Timesheets, Leave Approvals, and Document Q&A.",
-  csharp: "C# is my primary programming language. I use it across backend microservices, workflow orchestration, OAuth authentication handlers, and integrating AI models into production environments.",
-  workflows: "In my Enterprise AI Assistant project, I engineered automated employee lifecycle workflows: meeting scheduling and calendar invites via Microsoft Graph, automated meeting transcript summarization with action item extraction, AI-powered resume screening, and account setup/clearance checklists for onboarding and offboarding.",
-  ai: "I have hands-on experience designing and deploying enterprise AI systems using Azure OpenAI (GPT-4o), Retrieval-Augmented Generation (RAG), vector embeddings, intent detection, and multi-tool agent routing.",
-  rag: "My RAG implementation leverages Cosmos DB vector search and Azure OpenAI: I chunk and embed internal company documents, index them for semantic similarity search, and inject the retrieved top-k context into constrained prompts. This ensures document Q&A queries return factual, company-grounded answers with zero hallucination.",
-  prompting: "I engineer deterministic prompt pipelines using clear system roles, few-shot examples, chain-of-thought guidelines, and strict JSON schemas. This enables our LLMs to reliably extract structured arguments and trigger external APIs like Microsoft Graph, Zendesk, and Apollo.",
-  api: "I've built and integrated production REST APIs with platforms like Microsoft Graph API (calendar & emails), Apollo (CRM lookups), Zendesk & Zoho Desk (ticketing), Zoho People & CRM, and Google APIs (content automation), all secured via OAuth 2.0 and webhook consumers.",
-  database: "I work with a hybrid database architecture: SQL Server for relational transactional data and relational integrity, and Azure Cosmos DB for document storage, telemetry, and vector embeddings.",
-  spfx: "I'm working on an AI-Powered SPFx Development Workflow project built with React and TypeScript. It turns SharePoint requirements into packaged SPFx solutions by separating code generation from the build process, using AI agents and an isolated Azure sandbox environment to generate code and produce .sppkg packages, secured via Azure Key Vault.",
-  role: "I am an Associate Software Engineer at TCAIGV in Hyderabad (June 2025 – Present). I focus on building AI-powered enterprise applications, RAG pipelines, API integrations, and backend workflow automation.",
+  net: "I write and maintain .NET and C# REST APIs for our core business modules. This includes setting up services, handling business logic, and working on features like attendance, timesheets, leave approvals, and document Q&A.",
+  csharp: "C# is my primary programming language. I use it for backend development, creating REST APIs, handling authentication flows, and connecting external services.",
+  workflows: "In the Enterprise AI Assistant project, I built automated workflows for email handling, meeting scheduling, transcript summaries, resume screening, and onboarding/offboarding checklists.",
+  ai: "I have hands-on experience working with Azure OpenAI, LLMs, and RAG. I use them to build features that let users interact with internal data and services using natural language.",
+  rag: "For document Q&A, I set up RAG using Cosmos DB vector search and Azure OpenAI. The system searches for relevant text in uploaded documents and passes it to the model so it can answer questions based on actual company files.",
+  prompting: "I write system instructions and prompt templates to guide AI agents. This helps ensure the AI understands user requests and returns the right data to our backend APIs.",
+  api: "I've built and integrated REST APIs with several third-party platforms, including Microsoft Graph API for emails and meetings, Apollo for CRM data, Zendesk and Zoho Desk for ticketing, and Google APIs, using OAuth 2.0 and webhooks.",
+  database: "I work with SQL Server for relational data and Cosmos DB for document storage and vector search. I use both for querying, storing, and retrieving application data.",
+  spfx: "I'm working on an AI-powered SPFx development workflow built with React and TypeScript. It turns SharePoint requirements into packaged SPFx solutions by separating code generation from the build process, using AI agents and an Azure sandbox to generate and package SharePoint solutions, secured with Azure Key Vault.",
+  role: "I am an Associate Software Engineer at TCAIGV in Hyderabad, where I build backend services, .NET APIs, third-party integrations, and AI-assisted workflows.",
   education:
-    "I hold a B.Tech in Computer Science and Engineering with an Artificial Intelligence & Machine Learning specialization from Samskruti College of Engineering and Technology (2021–2024, CGPA 7.63), and a Diploma in Computer Engineering from Samskruti College of Polytechnic (2018–2021, CGPA 9.4).",
+    "I hold a B.Tech in CSE with an AI & ML specialization from Samskruti College of Engineering and Technology (7.63 CGPA) and a Diploma in Computer Engineering (9.4 CGPA).",
   contact: "You can reach me directly at vinaytiparthi2001@gmail.com, on LinkedIn at linkedin.com/in/vinayreddytiparthi, or by phone at +91-9347702744.",
 };
 
 const suggestions = [
-  "Tell me about your AI-Powered SPFx Development Workflow project.",
-  "How do you implement RAG & vector search?",
-  "What is your experience with LLMs & Prompting?",
-  "What workflows did you build in your project?",
-  "What APIs and platforms have you integrated?",
+  "Tell me about your SPFx development workflow project.",
+  "How do you implement RAG and vector search?",
+  "What is your experience with AI and prompting?",
+  "What workflows did you build?",
+  "What APIs have you integrated?",
 ];
 
 interface Message {
@@ -45,7 +45,7 @@ function getAnswer(question: string): string {
   if (q.includes("role") || q.includes("current") || q.includes("job") || q.includes("work") || q.includes("company")) return resumeQA.role;
   if (q.includes("education") || q.includes("degree") || q.includes("college") || q.includes("btech") || q.includes("university")) return resumeQA.education;
   if (q.includes("contact") || q.includes("email") || q.includes("linkedin") || q.includes("reach")) return resumeQA.contact;
-  return "I can answer questions about Vinay's work with RAG, LLMs, prompt engineering, agent workflows, .NET APIs, and enterprise integrations. Try one of the suggestions above!";
+  return "I can answer questions about my work with RAG, LLMs, prompt engineering, agent workflows, .NET APIs, and enterprise integrations. Try one of the suggestions above!";
 }
 
 export default function ResumeAssistant() {
@@ -59,6 +59,7 @@ export default function ResumeAssistant() {
   const [loading, setLoading] = useState(false);
   const [streaming, setStreaming] = useState(false);
   const chatContainerRef = useRef<HTMLDivElement>(null);
+  const activeIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const scrollToBottom = () => {
     if (chatContainerRef.current) {
@@ -67,7 +68,9 @@ export default function ResumeAssistant() {
   };
 
   const streamResponse = (fullText: string) => {
-    // Add empty message for assistant
+    if (activeIntervalRef.current) {
+      clearInterval(activeIntervalRef.current);
+    }
     setMessages((prev) => [...prev, { role: "assistant", text: "" }]);
     setLoading(false);
     setStreaming(true);
@@ -76,7 +79,7 @@ export default function ResumeAssistant() {
     let currentIndex = 0;
     let accumulatedText = "";
 
-    const interval = setInterval(() => {
+    activeIntervalRef.current = setInterval(() => {
       if (currentIndex < words.length) {
         accumulatedText += (currentIndex > 0 ? " " : "") + words[currentIndex];
         const currentTextSnapshot = accumulatedText;
@@ -93,15 +96,21 @@ export default function ResumeAssistant() {
         currentIndex++;
         scrollToBottom();
       } else {
-        clearInterval(interval);
+        if (activeIntervalRef.current) clearInterval(activeIntervalRef.current);
         setStreaming(false);
         scrollToBottom();
       }
-    }, 28);
+    }, 20);
   };
 
   const send = (question: string) => {
-    if (!question.trim() || streaming || loading) return;
+    if (!question.trim()) return;
+    if (activeIntervalRef.current) {
+      clearInterval(activeIntervalRef.current);
+    }
+    setStreaming(false);
+    setLoading(false);
+
     const userMsg: Message = { role: "user", text: question };
     setMessages((m) => [...m, userMsg]);
     setInput("");
@@ -111,7 +120,7 @@ export default function ResumeAssistant() {
       scrollToBottom();
       const answer = getAnswer(question);
       streamResponse(answer);
-    }, 350);
+    }, 250);
   };
 
   return (
